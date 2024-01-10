@@ -1,0 +1,18 @@
+
+Tables
+========================================================================
+
+
+
+SOME_TABLE                                                       [table]
+------------------------------------------------------------------------
+  MESSAGE_ID                        VARCHAR2(255) NOT NULL      
+  MESSAGE_BOX                       VARCHAR2(255) NOT NULL      
+  SOME_DATA                         VARCHAR2(255)               
+
+Indexes
+
+                                                          [unique index]
+  MESSAGE_ID                        ascending                   
+  MESSAGE_BOX                       ascending                   
+
