@@ -1,0 +1,26 @@
+
+
+Tables
+========================================================================
+
+
+
+GUY                                                              [table]
+------------------------------------------------------------------------
+  ID                                VARCHAR2(255) NOT NULL      
+  NAME                              VARCHAR2(255) NOT NULL      
+  FAVOURITE_VOWEL                   VARCHAR2(1) NOT NULL        
+
+Primary Key
+
+                                                           [primary key]
+  ID                                                            
+
+Indexes
+
+                                                          [unique index]
+  ID                                ascending                   
+
+                                                      [non-unique index]
+  NAME                              ascending                   
+

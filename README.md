@@ -20,4 +20,4 @@ Baseline creation is separated from creating the tables in the database, as the 
 
 ## Running
 
-You may run `all.sh` once to run everything, else use `create-schemas-and-compare.sh` to iterate on `create-tables.sql` diff.
+Create the base image first with `create-baseline.sh`. Now you can run `bug-repro.sh`. Optionally you may use the folder name to indicate which bug to replicate. This should replicate the bug in the `./$BUG_CASE/db*-schema` files. The \*-pre-comp are the pre-computed schemas to demonstrate the bug.
