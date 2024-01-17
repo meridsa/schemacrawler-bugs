@@ -11,11 +11,13 @@ COMPARE_SCHEMAS=false
 case "$BUG_CASE" in
   "checks")
     echo "Reproducing 'checks' bug" 
+    COMMAND=details
     EXPLANATION="A check has been created on the favourite vowel column of some guy to make sure only vowels are allowed.\nThis check does not show up in schemacrawler output."
     ;;
   "enabled-pk")
     echo "Reproducing 'enabled-pk' bug" 
     COMPARE_SCHEMAS=true
+    COMMAND=schema
     EXPLANATION="In db2 the same primary key has been created in db1, but through enablement instead of in-table creation.\nFixed in Schemacrawler V16.21.1"
     ;;
   *)
@@ -74,7 +76,7 @@ schemacrawler.sh \
   --output-file="$BUG_CASE/db1-schema" \
   --no-info `# This is a comment: Hide Schemacrawler header and database info` \
   --portable-names=true \
-  --command=schema
+  --command=$COMMAND
 
 if [ "$COMPARE_SCHEMAS" = "true" ]; then
   schemacrawler.sh \
@@ -90,7 +92,7 @@ if [ "$COMPARE_SCHEMAS" = "true" ]; then
     --output-file="$BUG_CASE/db2-schema" \
     --no-info `# This is a comment: Hide Schemacrawler header and database info` \
     --portable-names=true \
-    --command=schema
+    --command=$COMMAND
 
   sleep 1
   diff "$BUG_CASE/db1-schema" "$BUG_CASE/db2-schema"
