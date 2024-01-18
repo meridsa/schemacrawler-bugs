@@ -2,18 +2,13 @@
 
 BUG_CASE=$1
 if [[ -z $BUG_CASE ]]; then
-  BUG_CASE='checks'
+  BUG_CASE='enabled-pk'
   echo "No bug case selected. Reproducing $BUG_CASE"
 fi
 
 
 COMPARE_SCHEMAS=false
 case "$BUG_CASE" in
-  "checks")
-    echo "Reproducing 'checks' bug" 
-    COMMAND=details
-    EXPLANATION="A check has been created on the favourite vowel column of some guy to make sure only vowels are allowed.\nThis check does not show up in schemacrawler output."
-    ;;
   "enabled-pk")
     echo "Reproducing 'enabled-pk' bug" 
     COMPARE_SCHEMAS=true
